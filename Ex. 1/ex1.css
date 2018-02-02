@@ -1,0 +1,12 @@
+input.distancebox {
+	width: 50px;
+}
+tr.title {
+	font-weight: bold;
+}
+tr.odd {
+	background-color: lightgray;
+}
+td.bottom {
+	border-bottom: 1px solid black;
+}

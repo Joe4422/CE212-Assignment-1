@@ -1,0 +1,11 @@
+textarea.commentsBox {
+  resize: none;
+}
+td.title {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+td {
+  color:blue;
+}
