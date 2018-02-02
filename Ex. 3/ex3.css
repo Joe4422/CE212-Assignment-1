@@ -1,0 +1,23 @@
+body {
+	font-size: large
+}
+#outBox {
+	text-align:center; width:70; background: #EEFFFF; border: solid;
+    border-color: navy; padding: 1em; border-width: 1px;
+    font-family:"Courier New"; font-size:80%
+}
+button {
+	width:2.2em; font-weight:bold
+}
+	
+button.operator.active {
+	background-color:darkgray;
+}
+
+button.operator {
+	background-color:lightgray;
+}
+
+button.equals {
+	width: 4.7em;
+}

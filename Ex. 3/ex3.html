@@ -7,5 +7,39 @@
 	<body>
 		<h1>Calculator</h1>
 		<h2>Joseph Brown - 1603488</h2>
+		<p id="outBox">0</p>
+		<table>
+			<tr>
+				<td><button onclick="numberPress(innerHTML)">1</button></td>
+				<td><button onclick="numberPress(innerHTML)">2</button></td>
+				<td><button onclick="numberPress(innerHTML)">3</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="numberPress(innerHTML)">4</button></td>
+				<td><button onclick="numberPress(innerHTML)">5</button></td>
+				<td><button onclick="numberPress(innerHTML)">6</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="numberPress(innerHTML)">7</button></td>
+				<td><button onclick="numberPress(innerHTML)">8</button></td>
+				<td><button onclick="numberPress(innerHTML)">9</button></td>
+			</tr>
+			<tr>
+				<td><button onclick="dotPress()">.</button></td>
+				<td><button onclick="numberPress(innerHTML)">0</button></td>
+				<td><button id="clear" onclick="clearPress()">C</button></td>
+			</tr>
+			<tr>
+				<td><button class="operator" id="+" onclick="operatorPress(innerHTML)">+</button></td>
+				<td><button class="operator" id="-" onclick="operatorPress(innerHTML)">-</button></td>
+				<td><button class="operator" id="*" onclick="operatorPress(innerHTML)">*</button></td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td><button class="operator" id="/" onclick="operatorPress(innerHTML)">/</button></td>
+				<td><button class="equals" onclick="equalsPress()">=</button></td>
+			</tr>
+		</table>
 	</body>
 </html>
