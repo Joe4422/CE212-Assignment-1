@@ -7,13 +7,14 @@ function calculateDistances() {
 		return;
 	}
 	var opt = document.getElementById("calcSelect");
+	var counter = "i++";
+	var endCond = "i <= endDistance";
 	var startDistance = Number(document.getElementById("startDistance").value);
 	var endDistance = Number(document.getElementById("endDistance").value);
-	if (endDistance == "") endDistance = 0;
+	if (endDistance == "") endDistance = startDistance + 10;
 	if (startDistance > endDistance) {
-		var temp = startDistance;
-		startDistance = endDistance;
-		endDistance = temp;
+		counter = "i--";
+		endCond = "i >= endDistance";
 	}
 	var table = document.createElement("table");
 	table.id = "outputTable";
@@ -23,7 +24,7 @@ function calculateDistances() {
 	tableTitle.insertCell(0).innerHTML = "Miles";
 	tableTitle.insertCell(1).innerHTML = "Kilometres";
 	var isEven = false;
-	for (i = startDistance; i <= endDistance; i++) {
+	for (i = startDistance; eval(endCond); eval(counter) ) {
 		var newRow = table.insertRow(-1);
 		if (!isEven) newRow.className = "odd";
 		var miles = newRow.insertCell(0);
