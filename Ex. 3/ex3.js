@@ -1,4 +1,4 @@
-var displayNum = "0";
+var displayNum = "<br>";
 var val1 = "";
 var val2 = "";
 var operator = "";
@@ -8,7 +8,7 @@ function updateDisplay() {
 	document.getElementById("outBox").innerHTML = displayNum;
 }
 function clearDisplay() {
-	displayNum = "0";
+	displayNum = "<br>";
 	var operators = ["+", "-", "*", "/"];
 	for (i = 0; i < operators.length; i++) {
 		document.getElementById(operators[i]).className = "operator";
@@ -18,9 +18,10 @@ function clearDisplay() {
 function numberPress(value) {
 	if (state == 3) {
 		clearDisplay();
+		state = 1;
 	}
-	if (displayNum == "0") { 
-		displayNum = value; 
+	if (displayNum == "<br>") { 
+		displayNum = value;
 	} else if (displayNum.length < 8) {
 		displayNum += value;
 	}
@@ -36,9 +37,9 @@ function dotPress() {
 
 function clearPress() {
 	var cl = document.getElementById("clear");
-	if (state == 2 && displayNum != "0") {
+	if (state == 2 && displayNum != "<br>") {
 		val2 = "";
-		displayNum = 0;
+		displayNum = "<br>";
 		updateDisplay();
 	} else {
 		val2 = "";
@@ -54,7 +55,7 @@ function operatorPress(operator) {
 	if (state == 2) {
 		equalsPress();
 		val1 = displayNum;
-	} else {
+	} else if (displayNum != "<br>") {
 		val1 = displayNum;
 	}
 	state = 2;
@@ -74,5 +75,8 @@ function equalsPress() {
 		operator = "";
 		state = 3;
 		updateDisplay();
+		if (String(displayNum).length > 8) {
+			document.getElementById("outBox").innerHTML = String(displayNum).substring(0, 7) + "&#x2026";
+		}
 	}
 }

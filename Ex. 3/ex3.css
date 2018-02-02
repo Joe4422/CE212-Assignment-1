@@ -11,13 +11,19 @@ button {
 }
 	
 button.operator.active {
-	background-color:darkgray;
+	background-color:gray;
 }
 
 button.operator {
-	background-color:lightgray;
+	background-color:darkgray;
 }
 
 button.equals {
 	width: 4.7em;
+	background-color: orange;
+	color: white;
+}
+
+#clear {
+	color: blue;
 }
