@@ -15,8 +15,9 @@ function calculateDistances() {
 	var t = document.getElementById("outputTable");
 	if (t != null) t.remove();
 	var re = /^\d*$/;
-	if (document.getElementById("startDistance").value.search(re) || document.getElementById("endDistance").value.search(re)) {
-		alert("Inputs must be integers.");
+	var re2 = /^\d+$/;
+	if (document.getElementById("startDistance").value.search(re2) || document.getElementById("endDistance").value.search(re)) {
+		alert("Inputs must be non-negative integers.");
 		return;
 	}
 	var opt = document.getElementById("calcSelect");
