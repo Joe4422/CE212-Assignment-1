@@ -6,6 +6,11 @@ tr.title {
 	background-color: black;
 	color: white;
 }
+
+td.arrow {
+	cursor: pointer;
+}
+
 tr.odd {
 	color: darkgray;
 }

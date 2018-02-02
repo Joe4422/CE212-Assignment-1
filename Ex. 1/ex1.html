@@ -7,8 +7,8 @@
 	<body>
 		<h1>Dynamic Data Table</h1>
 		<h2>Joseph Brown - 1603488</h2>
-		Range: <input type="text" class="distancebox" id="startDistance"> to <input type="text" class="distancebox" id="endDistance">
+		Range: <input type="text" class="distancebox" id="startDistance" oninput="updatePlaceholder()"> to <input type="text" class="distancebox" id="endDistance">
 		<select id="calcSelect"><option value="0">miles</option><option value="1">kilometres</option></select><br><br>
-		<input type="button" value="Calculate!" onclick="calculateDistances()"><br><br>
+		<input type="button" value="Calculate!" onclick="getDistances()"><br><br>
 	<body>
 </html>

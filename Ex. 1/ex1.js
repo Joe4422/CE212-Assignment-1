@@ -1,3 +1,16 @@
+var startDistance;
+var endDistance;
+
+function getDistances() {
+	startDistance = Number(document.getElementById("startDistance").value);
+	endDistance = Number(document.getElementById("endDistance").value);
+	calculateDistances();
+}
+
+function updatePlaceholder() {
+	document.getElementById("endDistance").setAttribute("placeholder", Number(document.getElementById("startDistance").value) + 10);
+}
+
 function calculateDistances() {
 	var t = document.getElementById("outputTable");
 	if (t != null) t.remove();
@@ -8,13 +21,13 @@ function calculateDistances() {
 	}
 	var opt = document.getElementById("calcSelect");
 	var counter = "i++";
+	var arrow = "&#x25BE";
 	var endCond = "i <= endDistance";
-	var startDistance = Number(document.getElementById("startDistance").value);
-	var endDistance = Number(document.getElementById("endDistance").value);
 	if (endDistance == "") endDistance = startDistance + 10;
 	if (startDistance > endDistance) {
 		counter = "i--";
 		endCond = "i >= endDistance";
+		arrow = "&#x25B4";
 	}
 	var table = document.createElement("table");
 	table.id = "outputTable";
@@ -23,6 +36,10 @@ function calculateDistances() {
 	tableTitle.className = "title";
 	tableTitle.insertCell(0).innerHTML = "Miles";
 	tableTitle.insertCell(1).innerHTML = "Kilometres";
+	var arrowCell = tableTitle.insertCell(2);
+	arrowCell.innerHTML = arrow;
+	arrowCell.className = "arrow";
+	arrowCell.setAttribute("onclick", "changeSort();");
 	var isEven = false;
 	for (i = startDistance; eval(endCond); eval(counter) ) {
 		var newRow = table.insertRow(-1);
@@ -41,4 +58,11 @@ function calculateDistances() {
 		isEven = !isEven;
 	}
 	document.body.appendChild(table);
+}
+
+function changeSort() {
+	var temp = startDistance;
+	startDistance = endDistance;
+	endDistance = temp;
+	calculateDistances();
 }
