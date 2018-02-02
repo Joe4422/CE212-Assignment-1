@@ -3,10 +3,9 @@ input.distancebox {
 }
 tr.title {
 	font-weight: bold;
+	background-color: black;
+	color: white;
 }
 tr.odd {
-	background-color: lightgray;
-}
-td.bottom {
-	border-bottom: 1px solid black;
+	color: darkgray;
 }
