@@ -1,4 +1,4 @@
-inputTypeEnum = {
+typeEnum = {
 	TYPE_NUMBER : 0,
 	TYPE_OPERATOR : 1,
 	TYPE_DECIMAL : 2,
@@ -54,43 +54,5 @@ function displayWrite(number, append) {
 }
 
 function nextState(inputValue) {
-	if (state == stateEnum.STATE_INT1 && getType(inputValue) == inputTypeEnum.TYPE_NUMBER) {
-		int1 = displayWrite(inputValue, true);
-	} else if (state == stateEnum.STATE_INT1 && getType(inputValue) == inputTypeEnum.TYPE_DECIMAL) {
-		if (int1.indexOf(".") == -1) {
-			int1 = displayWrite(".", true);
-		}
-	} else if (state == stateEnum.STATE_INT1 && getType(inputValue) == inputTypeEnum.TYPE_CLEAR) {
-		int1 = "";
-		displayWrite("0");
-	} else if (state == stateEnum.STATE_INT1 && getType(inputValue) == inputTypeEnum.TYPE_OPERATOR) {
-		operator = inputValue;
-		state = stateEnum.STATE_INT2;
-		displayOverwrite = true;
-	} else if (state == stateEnum.STATE_INT2 && getType(inputValue) == inputTypeEnum.TYPE_NUMBER) {
-		int2 = displayWrite(inputValue, true);
-	} else if (state == stateEnum.STATE_INT2 && getType(inputValue) == inputTypeEnum.TYPE_DECIMAL) {
-		if (int2.indexOf(".") == -1) {
-			int2 = displayWrite(".", true);
-		}
-	} else if (state == stateEnum.STATE_INT2 && getType(inputValue) == inputTypeEnum.TYPE_EQUALS) {
-		state = stateEnum.STATE_OUTPUT;
-		int1 = displayWrite(eval("Number(" + int1 + ")" + operator + "Number(" + int2 + ")"));
-		displayOverwrite = true;
-	} else if (state == stateEnum.STATE_INT2 && getType(inputValue) == inputTypeEnum.TYPE_OPERATOR) {
-		int1 = displayWrite(eval("Number(" + int1 + ")" + operator + "Number(" + int2 + ")"));
-		displayOverwrite = true;
-		operator = inputValue;
-	} else if (state == stateEnum.STATE_INT2 && getType(inputValue) == inputTypeEnum.TYPE_CLEAR) {
-		if (int2 == "") {
-			state = stateEnum.STATE_INT1;
-			int1 = "";
-			operator = "";
-		}
-		int2 = "";
-		displayWrite("0");
-	} else if (state == stateEnum.STATE_OUTPUT && getType(inputValue) == inputTypeEnum.TYPE_NUMBER) {
-		state = stateEnum.STATE_INT1;
-		int1 = displayWrite(inputValue);
-	}
+
 }
