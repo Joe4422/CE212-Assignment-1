@@ -45,8 +45,8 @@ function displayWrite(number, append) {
 			currentDisplay += number;
 		}
 	} else {
-		if (number.length > 8) {
-			currentDisplay = number.substring(0, 7) + "&#x2026";
+		if (String(number).length > 8) {
+			currentDisplay = String(number).substring(0, 7) + "&#x2026";
 		} else {
 			currentDisplay = number;
 		}

@@ -4,6 +4,7 @@ var endDistance;
 function getDistances() {
 	startDistance = Number(document.getElementById("startDistance").value);
 	endDistance = Number(document.getElementById("endDistance").value);
+	if (endDistance == "") endDistance = startDistance + 10;
 	calculateDistances();
 }
 
@@ -24,7 +25,6 @@ function calculateDistances() {
 	var counter = "i++";
 	var arrow = "&#x25BE";
 	var endCond = "i <= endDistance";
-	if (endDistance == "") endDistance = startDistance + 10;
 	if (startDistance > endDistance) {
 		counter = "i--";
 		endCond = "i >= endDistance";
